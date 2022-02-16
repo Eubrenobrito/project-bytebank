@@ -5,15 +5,19 @@
     <th class="tabela__cabecalho__conteudo">Destino</th>
     <th class="tabela__cabecalho__conteudo">Data</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transferencias?.length > 0; else listaVazia">
     <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
-      <td class="tabela__conteudo">{{transferencia.nome}}</td>
+      <td class="tabela__conteudo" >{{transferencia.nome}}</td>
       <td class="tabela__conteudo">{{transferencia.valor|currency}}</td>
       <td class="tabela__conteudo">{{transferencia.destino}}</td>
       <td class="tabela__conteudo">{{transferencia.data|date: 'short'}}</td>
     </tr>
   </tbody>
 </table>
+<ng-template #listaVazia>
+<!--  a tag ng-template serve para substituir o conteudo do tbody quando nao aparecer-->
+<p class="text-muted">Nenhuma operação cadastrada</p>
+</ng-template>
 <!--<div *ngFor="let transferencia of transferencias">-->
 <!--  <p>___________________________________________________</p>-->
 <!--  <p>Nome: {{transferencia?.nome}}</p>-->

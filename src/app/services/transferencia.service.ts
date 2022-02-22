@@ -11,7 +11,7 @@ private listaTransferencia: any[];
 private url = 'http://localhost:3000/transferencias';
 
 
-    constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     this.listaTransferencia = []
   }
   get transferencias(){
@@ -23,9 +23,9 @@ private url = 'http://localhost:3000/transferencias';
   //  retorna uma requisição get para o endereço
   }
 
-  adicionar (transferencia: any){
+  adicionar (transferencia: Transferencia): Observable<Transferencia>{
     this.hidratar(transferencia);
-    this.listaTransferencia.push(transferencia);
+    return this.httpClient.post<Transferencia>(this.url,transferencia)
   }
   private hidratar(transferencia: any){
     transferencia.data = new Date();

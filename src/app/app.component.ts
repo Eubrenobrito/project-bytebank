@@ -9,10 +9,6 @@ export class AppComponent {
   title = 'projeto bytebank em angular';
 
   constructor(private service: TransferenciaService) {}
-
-  transferir($event){
-   this.service.adicionar($event);
-}
   }
 
 

@@ -4,8 +4,8 @@ export interface Root {
 
 export interface Transferencia {
   id?: any
-  Valor: number
+  valor: number
   nome: string
-  destino: string
+  destino: string | Number;
   data?: string
 }

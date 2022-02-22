@@ -8,7 +8,7 @@ import {Transferencia} from "../models/transferencia.model";
   styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent implements OnInit {
- transferencias: any[];
+ @Input() transferencias: any[];
 
   constructor(private service: TransferenciaService) { }
 
@@ -16,6 +16,6 @@ export class ExtratoComponent implements OnInit {
     this.service.todas().subscribe((transferencias: Transferencia[])  =>{
       console.table(transferencias);
       this.transferencias = transferencias;
-    })
+    });
   }
 }

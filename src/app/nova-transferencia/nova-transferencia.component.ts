@@ -24,7 +24,7 @@ export class NovaTransferenciaComponent{
                           nome: this.nome
                         };
     this.service.adicionar(valorEmitir).subscribe(
-      resultado => {
+      (resultado) => {
       console.log(resultado);
       this.limparCampos();
     },
